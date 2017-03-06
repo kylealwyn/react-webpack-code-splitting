@@ -1,0 +1,35 @@
+{
+  "name": "react-router-code-splitting-example",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "NODE_ENV=development webpack-dashboard -- webpack-dev-server --config webpack.config.dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "rimraf build",
+    "build": "webpack --progress --config webpack.config.prod",
+    "start:build": "npm run build && http-server ./build"
+  },
+  "author": "Kyle Alwyn <kjalwyn@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-router": "^3.0.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.23.0",
+    "css-loader": "^0.26.2",
+    "extract-text-webpack-plugin": "^2.0.0",
+    "html-webpack-plugin": "^2.21.0",
+    "http-server": "^0.9.0",
+    "style-loader": "^0.13.2",
+    "webpack": "^2.0.0",
+    "webpack-dashboard": "^0.3.0",
+    "webpack-dev-server": "^2.0.0"
+  }
+}
