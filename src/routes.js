@@ -10,7 +10,7 @@ export default () => (
     }} />
 
     <Route path='/projects' getComponent={(nextState, cb) => {
-      require(['./projects', './projects.css'], loadRoute(cb))
+      require(['./projects'], loadRoute(cb))
     }} />
 
     <Route path='/about' getComponent={(nextState, cb) => {

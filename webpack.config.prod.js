@@ -30,16 +30,14 @@ module.exports = {
       title: 'Intro to Webpack',
       template: 'src/index.html'
     }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false
+    }),
     new webpack.DefinePlugin({
       "process.env": {
          NODE_ENV: JSON.stringify("production")
        }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      beautify: false,
-      mangle: { screw_ie8 : true },
-      compress: { screw_ie8: true, warnings: false },
-      comments: false
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -47,6 +45,12 @@ module.exports = {
       minChunks: (chunk) => /node_modules/.test(chunk.resource)
     }),
     new webpack.optimize.CommonsChunkPlugin('manifest'),
+    new webpack.optimize.UglifyJsPlugin({
+      beautify: false,
+      mangle: { screw_ie8 : true },
+      compress: { screw_ie8: true, warnings: false },
+      comments: false
+    }),
     new ExtractTextPlugin('[name].[contenthash:12].css'),
   ]
 };

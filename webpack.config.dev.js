@@ -5,7 +5,6 @@ const DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
-  stats: 'minimal',
   entry: {
     app: [
       'webpack-dev-server/client?http://localhost:8080',

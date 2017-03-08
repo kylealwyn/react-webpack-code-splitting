@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "rimraf build",
     "build": "webpack --progress --config webpack.config.prod",
-    "start:build": "npm run build && http-server ./build"
+    "build:serve": "npm run build && http-server ./build"
   },
   "author": "Kyle Alwyn <kjalwyn@gmail.com>",
   "license": "MIT",
