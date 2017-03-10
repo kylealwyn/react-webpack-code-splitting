@@ -45,10 +45,17 @@ module.exports = {
       minChunks: (chunk) => /node_modules/.test(chunk.resource)
     }),
     new webpack.optimize.CommonsChunkPlugin('manifest'),
+    new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       beautify: false,
       mangle: { screw_ie8 : true },
-      compress: { screw_ie8: true, warnings: false },
+      compress: {
+        warnings: false, // Suppress uglification warnings
+        pure_getters: true,
+        unsafe: true,
+        unsafe_comps: true,
+        screw_ie8: true
+      },
       comments: false
     }),
     new ExtractTextPlugin('[name].[contenthash:12].css'),
