@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dashboard -- webpack-dev-server --config webpack.config.dev",
+    "start": "NODE_ENV=development webpack-dashboard -- webpack-dev-server --env dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "rimraf build",
-    "build": "webpack --progress --config webpack.config.prod",
+    "build": "webpack --progress --env prod",
     "build:serve": "npm run build && http-server ./build"
   },
   "author": "Kyle Alwyn <kjalwyn@gmail.com>",

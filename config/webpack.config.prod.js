@@ -1,13 +1,14 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const Constants = require('./constants');
 
 module.exports = {
   entry: {
-    app: ['./src/app.js']
+    app: [Constants.ScriptEntry]
   },
   output: {
-    path: `${__dirname}/build`,
+    path: Constants.Build,
     publicPath: '/',
     filename: '[name].[chunkhash:12].js',
     chunkFilename: "[id].[chunkhash:12].js"
@@ -17,7 +18,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
-        include: `${__dirname}/src`
+        include: Constants.Source
       },
       {
         test: /\.css$/,
@@ -28,7 +29,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Intro to Webpack',
-      template: 'src/index.html'
+      template: Constants.HtmlEntry,
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true,

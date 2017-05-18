@@ -2,6 +2,9 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const DashboardPlugin = require('webpack-dashboard/plugin');
+const Constants = require('./constants');
+
+console.log(Constants)
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -9,11 +12,11 @@ module.exports = {
     app: [
       'webpack-dev-server/client?http://localhost:8080',
       'webpack/hot/only-dev-server',
-      './src/app.js'
+      Constants.ScriptEntry,
     ]
   },
   output: {
-    path: `${__dirname}/build`,
+    path: Constants.Build,
     publicPath: '/',
     filename: '[name].[hash:12].js',
     chunkFilename: "[id].[chunkhash:12].js"
@@ -23,7 +26,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
-        include: `${__dirname}/src`
+        include: Constants.Source
       },
       {
         test: /\.css$/,
@@ -45,7 +48,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Intro to Webpack',
-      template: 'src/index.html'
+      template: Constants.HtmlEntry
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
