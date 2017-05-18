@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const Constants = require('./constants');
 
 module.exports = {
@@ -31,6 +32,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Intro to Webpack',
       template: Constants.HtmlEntry,
+    }),
+    new PreloadWebpackPlugin({
+      rel: 'prefetch',
+      as: 'script',
+      include: 'asyncChunks'
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
