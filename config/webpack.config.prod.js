@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const Constants = require('./constants');
 
 module.exports = {
@@ -60,5 +61,10 @@ module.exports = {
       comments: false
     }),
     new ExtractTextPlugin('[name].[contenthash:12].css'),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      reportFilename: 'tmp/bundle-report.html',
+      generateStatsFile: true,
+    }),
   ]
 };

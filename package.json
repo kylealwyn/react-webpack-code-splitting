@@ -12,25 +12,26 @@
   "author": "Kyle Alwyn <kjalwyn@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-router": "^3.0.2"
-  },
-  "devDependencies": {
-    "babel-core": "^6.10.4",
-    "babel-loader": "^6.2.4",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
     "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "babel-polyfill": "^6.9.1",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.23.0",
-    "css-loader": "^0.26.2",
-    "extract-text-webpack-plugin": "^2.0.0",
+    "css-loader": "^0.26.4",
+    "extract-text-webpack-plugin": "^2.1.0",
     "html-webpack-plugin": "^2.21.0",
-    "http-server": "^0.9.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-router": "^3.0.5",
     "rimraf": "^2.6.1",
     "style-loader": "^0.13.2",
-    "webpack": "^2.0.0",
+    "webpack": "^2.5.1"
+  },
+  "devDependencies": {
+    "http-server": "^0.10.0",
+    "webpack-bundle-analyzer": "^2.8.1",
     "webpack-dashboard": "^0.3.0",
-    "webpack-dev-server": "^2.0.0"
+    "webpack-dev-server": "^2.4.5"
   }
 }

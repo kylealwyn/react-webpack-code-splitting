@@ -6,6 +6,6 @@ const source = `${root}/src`;
 module.exports = {
   Source: source,
   ScriptEntry: `${source}/app.js`,
-  HtmlEntry: `${source}/index.html`
+  HtmlEntry: `${source}/index.html`,
   Build: `${root}/build`,
 };

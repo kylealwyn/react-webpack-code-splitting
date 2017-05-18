@@ -2,9 +2,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const DashboardPlugin = require('webpack-dashboard/plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const Constants = require('./constants');
-
-console.log(Constants)
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -58,6 +57,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
+    new BundleAnalyzerPlugin(),
     new DashboardPlugin()
   ]
 };
