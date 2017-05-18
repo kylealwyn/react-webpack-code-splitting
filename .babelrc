@@ -5,6 +5,7 @@
       "helpers": false,
       "polyfill": false,
       "regenerator": true
-    }]
+    }],
+    "syntax-dynamic-import",
   ]
 }
