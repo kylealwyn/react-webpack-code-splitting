@@ -12,15 +12,15 @@ module.exports = {
   output: {
     path: Constants.Build,
     publicPath: '/',
-    filename: '[name].[chunkhash:12].js',
-    chunkFilename: "[id].[chunkhash:12].js"
+    filename: '[name].[chunkhash].js',
+    chunkFilename: "[id].[chunkhash].js"
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
-        loader: 'babel-loader',
-        include: Constants.Source
+        include: Constants.Source,
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,
@@ -49,7 +49,7 @@ module.exports = {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: '[name].[chunkhash:12].js',
+      filename: '[name].[chunkhash].js',
       minChunks: (chunk) => /node_modules/.test(chunk.resource)
     }),
     new webpack.optimize.CommonsChunkPlugin('manifest'),
@@ -59,17 +59,15 @@ module.exports = {
       mangle: { screw_ie8 : true },
       compress: {
         warnings: false, // Suppress uglification warnings
-        pure_getters: true,
-        unsafe: true,
-        unsafe_comps: true,
         screw_ie8: true
       },
       comments: false
     }),
-    new ExtractTextPlugin('[name].[contenthash:12].css'),
+    new ExtractTextPlugin('[name].[contenthash].css'),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
-      reportFilename: 'tmp/bundle-report.html',
+      openAnalyzer: false,
+      reportFilename: 'bundle-report.html',
       generateStatsFile: true,
     }),
   ]

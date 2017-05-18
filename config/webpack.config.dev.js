@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const DashboardPlugin = require('webpack-dashboard/plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const Constants = require('./constants');
 
 module.exports = {
@@ -17,15 +16,15 @@ module.exports = {
   output: {
     path: Constants.Build,
     publicPath: '/',
-    filename: '[name].[hash:12].js',
-    chunkFilename: "[id].[chunkhash:12].js"
+    filename: '[name].[hash].js',
+    chunkFilename: "[id].[chunkhash].js"
   },
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)$/,
+        include: Constants.Source,
         loader: 'babel-loader',
-        include: Constants.Source
       },
       {
         test: /\.css$/,
@@ -57,7 +56,6 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new BundleAnalyzerPlugin(),
     new DashboardPlugin()
   ]
 };

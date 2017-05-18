@@ -9,7 +9,7 @@ render(<Router />, root)
 
 if (module.hot) {
   module.hot.accept('./routes', () => {
-    const NewRouter = require('./routes').default;;
+    const NewRouter = require('./routes').default;
 
     render(<NewRouter />, root)
   });
