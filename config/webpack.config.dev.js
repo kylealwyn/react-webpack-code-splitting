@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const Constants = require('./constants');
 
@@ -12,21 +11,21 @@ module.exports = {
       'webpack-dev-server/client?http://localhost:8080',
       'webpack/hot/only-dev-server',
       Constants.ScriptEntry,
-    ]
+    ],
   },
   output: {
     path: Constants.Build,
     publicPath: '/',
     filename: '[name].[hash].js',
-    chunkFilename: 'chunk-[id].[chunkhash].js'
+    chunkFilename: 'chunk-[id].[chunkhash].js',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
       '@components': path.resolve(__dirname, '..', 'src/components/'),
       '@styles': path.resolve(__dirname, '..', 'src/styles/'),
-      '@views': path.resolve(__dirname, '..', 'src/views/')
-    }
+      '@views': path.resolve(__dirname, '..', 'src/views/'),
+    },
   },
   module: {
     loaders: [
@@ -37,9 +36,9 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: ['style-loader', 'css-loader']
+        loaders: ['style-loader', 'css-loader'],
       },
-    ]
+    ],
   },
   devServer: {
     host: 'localhost',
@@ -55,16 +54,16 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Intro to Webpack',
-      template: Constants.HtmlEntry
+      template: Constants.HtmlEntry,
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks: (chunk) => /node_modules/.test(chunk.resource)
+      minChunks: chunk => /node_modules/.test(chunk.resource),
     }),
     new webpack.optimize.CommonsChunkPlugin('manifest'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new DashboardPlugin()
-  ]
+    new DashboardPlugin(),
+  ],
 };
