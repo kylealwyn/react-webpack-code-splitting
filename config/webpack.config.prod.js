@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -6,6 +7,7 @@ const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const Constants = require('./constants');
 
 module.exports = {
+  devtool: 'cheap-module-source-map',
   entry: {
     app: [Constants.ScriptEntry]
   },
@@ -13,7 +15,15 @@ module.exports = {
     path: Constants.Build,
     publicPath: '/',
     filename: '[name].[chunkhash].js',
-    chunkFilename: "[id].[chunkhash].js"
+    chunkFilename: "chunk-[id].[chunkhash].js"
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    alias: {
+      '@components': path.resolve(__dirname, '..', 'src/components/'),
+      '@styles': path.resolve(__dirname, '..', 'src/styles/'),
+      '@views': path.resolve(__dirname, '..', 'src/views/')
+    }
   },
   module: {
     loaders: [
@@ -24,7 +34,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
+        include: Constants.Source,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        })
       },
     ]
   },

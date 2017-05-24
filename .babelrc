@@ -6,6 +6,6 @@
       "polyfill": false,
       "regenerator": true
     }],
-    "syntax-dynamic-import",
+    "syntax-dynamic-import"
   ]
 }

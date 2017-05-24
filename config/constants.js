@@ -5,7 +5,7 @@ const source = `${root}/src`;
 
 module.exports = {
   Source: source,
-  ScriptEntry: `${source}/app.js`,
+  ScriptEntry: `${source}/root.jsx`,
   HtmlEntry: `${source}/index.html`,
   Build: `${root}/build`,
 };

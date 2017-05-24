@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -17,7 +18,15 @@ module.exports = {
     path: Constants.Build,
     publicPath: '/',
     filename: '[name].[hash].js',
-    chunkFilename: "[id].[chunkhash].js"
+    chunkFilename: 'chunk-[id].[chunkhash].js'
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    alias: {
+      '@components': path.resolve(__dirname, '..', 'src/components/'),
+      '@styles': path.resolve(__dirname, '..', 'src/styles/'),
+      '@views': path.resolve(__dirname, '..', 'src/views/')
+    }
   },
   module: {
     loaders: [
