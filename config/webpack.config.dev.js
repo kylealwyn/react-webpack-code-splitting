@@ -17,14 +17,14 @@ module.exports = {
     path: Constants.Build,
     publicPath: '/',
     filename: '[name].[hash].js',
-    chunkFilename: 'chunk-[id].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      '@components': path.resolve(__dirname, '..', 'src/components/'),
-      '@styles': path.resolve(__dirname, '..', 'src/styles/'),
-      '@views': path.resolve(__dirname, '..', 'src/views/'),
+      '@components': path.resolve(Constants.Source, 'components/'),
+      '@styles': path.resolve(Constants.Source, 'styles/'),
+      '@views': path.resolve(Constants.Source, 'views/'),
     },
   },
   module: {
