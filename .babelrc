@@ -6,6 +6,7 @@
       "polyfill": false,
       "regenerator": true
     }],
-    "syntax-dynamic-import"
+    "syntax-dynamic-import",
+    "transform-object-rest-spread"
   ]
 }

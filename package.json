@@ -25,12 +25,15 @@
     "preload-webpack-plugin": "^1.2.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-router": "^3.0.5",
+    "react-loadable": "^3.3.1",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
     "rimraf": "^2.6.1",
     "style-loader": "^0.13.2",
     "webpack": "^2.5.1"
   },
   "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.2.0",
